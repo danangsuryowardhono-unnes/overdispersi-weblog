@@ -1,0 +1,65 @@
+# Konfigurasi revisi_overdispersi.py  —  untuk folder "tugas 6"
+# Jalankan dari DALAM folder tugas 6 (tempat file ini berada):
+#   cd "G:\My Drive\Documents\unnes\semester 1\Matematika dan Statistik untuk Informatika\tugas 6"
+#   python revisi_overdispersi.py --config config_revisi.yaml --only-parse
+#
+# Pola '**' mencari ke semua subfolder hasil ekstrak organization-x.zip dan organization-y.zip,
+# jadi nama subfolder hasil ekstrak tidak berpengaruh.
+# File yang sengaja TIDAK dibaca: error.log*, *.error_log, web-error.log*, other_vhosts_access.log,
+# auth.log*, syslog*, error-logs.txt, stderr.log, dan access.log (lihat catatan di Org X).
+
+orgs:
+  X:
+    # Hanya Org X yang punya web-access.log*. access.log tidak dipakai karena nama yang sama
+    # juga ada di Org Y; di naskah, log akses Org X yang tidak kosong adalah web-access.log*.
+    paths: ["**/web-access.log*"]
+    rules_path: "organization-x.yaml"
+    tz: "Asia/Jakarta"
+    start: null
+    end: null
+    vhost_from: "none"
+    expected_total: 213205
+    expected_benign: 212478   # dari Tabel 2 naskah: 20.411 menit x 10,41
+
+  Y:
+    # Log per virtual host OpenLiteSpeed: sub1.domain1.com.access_log, ...access_log.2025_04_19.01
+    paths: ["**/*.access_log*"]
+    rules_path: "organization-y.yaml"
+    tz: "Asia/Jakarta"
+    start: "2025-04-13"
+    end: null
+    vhost_from: "filename"
+    expected_total: 7084558
+    expected_benign: 2245963  # OrgY_label_ground_truth.csv (pipeline lama, mode all)
+
+  NASA:
+    paths: ["NASA_access_log_Jul95*"]
+    rules_path: ["organization-x.yaml", "organization-y.yaml"]   # isu 5a
+    tz: "Etc/GMT+4"
+    vhost_from: "none"
+    expected_total: 1891714
+
+# Pelabelan memakai organization-x.yaml / organization-y.yaml:
+#   filter = daftar pola (AND), case-insensitive, dicocokkan ke baris log mentah.
+#   "code: 404" -> kolom status HTTP = 404.
+#   percent_mode: auto  -> pola yang DIAWALI '%' (rule strict) = wildcard SQL LIKE;
+#                          pola lain literal (mis. "SELECT%" = teks "select%" ter-encode URL)
+#                 like  -> semua '%' dianggap wildcard
+#                 literal -> semua '%' dianggap karakter biasa
+percent_mode: auto
+strict_modes: ["strict"]   # nilai 'sensitivity' yang dihitung sebagai rule strict
+strip_quotes: true         # tanda kutip -> spasi sebelum pencocokan (setara pipeline lama; rule " python")
+# legacy_regex: false = pola LIKE di-escape dengan benar (DISARANKAN).
+# legacy_regex: true  = tiru pipeline lama: tanda kurung pada rule strict Org X
+#                       "%Mozilla/5.0 (Windows NT 10.0; Win64; x64)" dibaca sebagai grup regex,
+#                       sehingga rule itu tidak pernah cocok (Org X benign ~212.500 seperti naskah).
+legacy_regex: false
+
+phase1_frac: 0.6
+block_len_min: 60
+n_boot: 1000
+n_jitter_seeds: 100
+ks_sample: 200000
+min_attack_req_per_min: 10
+min_vhost_requests: 5000
+stable_start_Y: null       # isi (mis. "2025-04-20") untuk menimpa hasil change-point otomatis

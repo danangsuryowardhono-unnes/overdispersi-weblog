@@ -1,0 +1,279 @@
+{
+  "nama": "NASA",
+  "n_menit": 39693,
+  "n_fase1": 23815,
+  "n_fase2": 15878,
+  "D_1menit": 22.006916427604224,
+  "D_block_IK95": {
+    "30": [
+      19.683,
+      24.554
+    ],
+    "60": [
+      19.055,
+      25.245
+    ],
+    "120": [
+      18.125,
+      26.958
+    ]
+  },
+  "D_dijarangkan_120": {
+    "n": 331,
+    "D": 21.63145278543006,
+    "p": 0.0
+  },
+  "ACF_lag1": 0.8419547062219582,
+  "lag_pertama_ACF_bawah_0.1": null,
+  "ringkasan_per_jam": [
+    {
+      "strata": "akhir pekan",
+      "interval_menit": 1,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 6.4352643149720095
+    },
+    {
+      "strata": "akhir pekan",
+      "interval_menit": 5,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 18.97256368602477
+    },
+    {
+      "strata": "akhir pekan",
+      "interval_menit": 10,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 30.81627028422984
+    },
+    {
+      "strata": "hari kerja",
+      "interval_menit": 1,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 8.78378163757344
+    },
+    {
+      "strata": "hari kerja",
+      "interval_menit": 5,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 27.056093047116903
+    },
+    {
+      "strata": "hari kerja",
+      "interval_menit": 10,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 47.86042382807969
+    },
+    {
+      "strata": "semua",
+      "interval_menit": 1,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 9.523985854895454
+    },
+    {
+      "strata": "semua",
+      "interval_menit": 5,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 33.714680359526994
+    },
+    {
+      "strata": "semua",
+      "interval_menit": 10,
+      "jam": 24,
+      "tolak": 24,
+      "overdispersi": 24,
+      "median_D": 59.89526297857252
+    }
+  ],
+  "NB_r_fase1": {
+    "r": 3.800843149617002,
+    "IK95": [
+      3.72820063637226,
+      3.87464436226721
+    ],
+    "gradien_di_optimum": 0.00016632839106023312,
+    "konvergen": true
+  },
+  "NB_lag": {
+    "b1": 0.5958401033200915,
+    "se_b1": 0.007356075329104083,
+    "b2": 0.17731098652379798,
+    "se_b2": 0.007372629540577401,
+    "r": 9.721991140917366,
+    "konvergen": false
+  },
+  "INGARCH": {
+    "a": 0.27905016473388483,
+    "b": 0.6982776374013269,
+    "r": 11.539181376456625,
+    "konvergen": true
+  },
+  "logscore_fase2_per_obs": {
+    "Poisson homogen": -12.45211904899718,
+    "NHPP per jam": -8.317866355360943,
+    "Binomial negatif": -4.4040685931396135,
+    "NB + lag": -4.102004871663924,
+    "INGARCH(1,1)-NB": -4.05073862481827
+  },
+  "diagnostik_residual": [
+    {
+      "model": "Binomial negatif",
+      "acf_lag1_resid": 0.5772831587200575,
+      "LB60": 107280.13697614791,
+      "p_LB60": 0.0
+    },
+    {
+      "model": "NB + lag",
+      "acf_lag1_resid": -0.1589716453475803,
+      "LB60": 1270.1583778909887,
+      "p_LB60": 3.502246858681485e-226
+    },
+    {
+      "model": "INGARCH(1,1)-NB",
+      "acf_lag1_resid": 0.10644223335799652,
+      "LB60": 501.1562946529383,
+      "p_LB60": 7.100182752536774e-71
+    }
+  ],
+  "rolling_origin_rata2": {
+    "Poisson homogen": -12.602143746824334,
+    "NHPP per jam": -9.484358409965076,
+    "Binomial negatif": -4.43818186125396,
+    "NB + lag": -4.02760523129847,
+    "INGARCH(1,1)-NB": -3.9624084535548234
+  },
+  "rolling_origin_menang": {
+    "INGARCH(1,1)-NB": 4
+  },
+  "monitoring_0.135%": [
+    {
+      "model": "Poisson homogen",
+      "metode": "kuantil",
+      "target_FAR": 0.00135,
+      "menit_fase2": 15878,
+      "alarm_palsu_benign": 2050,
+      "FAR": 0.12911,
+      "FAR_lo": 0.12398,
+      "FAR_hi": 0.13441,
+      "rasio_nominal": 95.63664,
+      "alarm_palsu_per_hari": 185.91762,
+      "menit_serangan": 0,
+      "TP": 0,
+      "FN": 0,
+      "FP": 2050,
+      "TN": 13828,
+      "detection_rate": NaN,
+      "DR_lo": NaN,
+      "DR_hi": NaN,
+      "precision": 0.0,
+      "recall": NaN,
+      "F1": NaN
+    },
+    {
+      "model": "NHPP per jam",
+      "metode": "kuantil",
+      "target_FAR": 0.00135,
+      "menit_fase2": 15878,
+      "alarm_palsu_benign": 706,
+      "FAR": 0.04446,
+      "FAR_lo": 0.04137,
+      "FAR_hi": 0.04778,
+      "rasio_nominal": 32.93632,
+      "alarm_palsu_per_hari": 64.02822,
+      "menit_serangan": 0,
+      "TP": 0,
+      "FN": 0,
+      "FP": 706,
+      "TN": 15172,
+      "detection_rate": NaN,
+      "DR_lo": NaN,
+      "DR_hi": NaN,
+      "precision": 0.0,
+      "recall": NaN,
+      "F1": NaN
+    },
+    {
+      "model": "Binomial negatif",
+      "metode": "kuantil",
+      "target_FAR": 0.00135,
+      "menit_fase2": 15878,
+      "alarm_palsu_benign": 0,
+      "FAR": 0.0,
+      "FAR_lo": 0.0,
+      "FAR_hi": 0.00024,
+      "rasio_nominal": 0.0,
+      "alarm_palsu_per_hari": 0.0,
+      "menit_serangan": 0,
+      "TP": 0,
+      "FN": 0,
+      "FP": 0,
+      "TN": 15878,
+      "detection_rate": NaN,
+      "DR_lo": NaN,
+      "DR_hi": NaN,
+      "precision": NaN,
+      "recall": NaN,
+      "F1": NaN
+    },
+    {
+      "model": "Poisson homogen",
+      "metode": "mu+3sqrt(mu)",
+      "target_FAR": 0.00135,
+      "menit_fase2": 15878,
+      "alarm_palsu_benign": 2264,
+      "FAR": 0.14259,
+      "FAR_lo": 0.13724,
+      "FAR_hi": 0.14811,
+      "rasio_nominal": 105.62017,
+      "alarm_palsu_per_hari": 205.32561,
+      "menit_serangan": 0,
+      "TP": 0,
+      "FN": 0,
+      "FP": 2264,
+      "TN": 13614,
+      "detection_rate": NaN,
+      "DR_lo": NaN,
+      "DR_hi": NaN,
+      "precision": 0.0,
+      "recall": NaN,
+      "F1": NaN
+    },
+    {
+      "model": "NHPP per jam",
+      "metode": "mu+3sqrt(mu)",
+      "target_FAR": 0.00135,
+      "menit_fase2": 15878,
+      "alarm_palsu_benign": 811,
+      "FAR": 0.05108,
+      "FAR_lo": 0.04776,
+      "FAR_hi": 0.05461,
+      "rasio_nominal": 37.83479,
+      "alarm_palsu_per_hari": 73.55083,
+      "menit_serangan": 0,
+      "TP": 0,
+      "FN": 0,
+      "FP": 811,
+      "TN": 15067,
+      "detection_rate": NaN,
+      "DR_lo": NaN,
+      "DR_hi": NaN,
+      "precision": 0.0,
+      "recall": NaN,
+      "F1": NaN
+    }
+  ]
+}
