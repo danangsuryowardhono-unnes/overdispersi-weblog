@@ -6,7 +6,7 @@ Kode analisis untuk naskah JUSTINDO:
 
 Penulis: Danang Suryo Wardhono dan Alamsyah, Program Studi Magister Informatika, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Negeri Semarang.
 
-DOI arsip (Zenodo): **[isi setelah rilis v1.0, format 10.5281/zenodo.xxxxxxx]**
+DOI arsip (Zenodo): **[10.5281/zenodo.24435413](https://doi.org/10.5281/zenodo.24435413)**
 Versi yang diacu naskah: **v1.0**
 
 ## Data
