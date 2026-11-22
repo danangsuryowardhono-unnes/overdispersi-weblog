@@ -18,7 +18,7 @@ Log mentah tidak disertakan di repositori ini. Unduh dari sumber aslinya:
 - **NASA-HTTP, Juli 1995**, Internet Traffic Archive: https://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html (berkas `NASA_access_log_Jul95.gz`).
   SHA-256 berkas yang dipakai: `199109ed0f273e095da6ccd5fc9dc4cd8bb58daa06d62135e62090fea9d27488`.
   Baris utuh terakhir bertimestamp `28/Jul/1995:13:32:25 -0400`; baris paling akhir berkas terpotong dan termasuk 5 baris yang gagal di-*parse*.
-- Tanggal data diunduh: **[isi tanggal pengunduhan]**.
+- Tanggal data diunduh: 8 Oktober 2026.
 
 ## Isi repositori
 
