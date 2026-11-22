@@ -1,6 +1,6 @@
-# Konfigurasi revisi_overdispersi.py  —  untuk folder "tugas 6"
-# Jalankan dari DALAM folder tugas 6 (tempat file ini berada):
-#   cd "G:\My Drive\Documents\unnes\semester 1\Matematika dan Statistik untuk Informatika\tugas 6"
+# Konfigurasi revisi_overdispersi.py
+# Jalankan dari folder tempat log, berkas YAML, dan file ini berada:
+#   cd <folder-analisis>
 #   python revisi_overdispersi.py --config config_revisi.yaml --only-parse
 #
 # Pola '**' mencari ke semua subfolder hasil ekstrak organization-x.zip dan organization-y.zip,
@@ -19,7 +19,7 @@ orgs:
     end: null
     vhost_from: "none"
     expected_total: 213205
-    expected_benign: 212478   # dari Tabel 2 naskah: 20.411 menit x 10,41
+    expected_benign: 201692   # jumlah request benign pada naskah (Tabel 1)
 
   Y:
     # Log per virtual host OpenLiteSpeed: sub1.domain1.com.access_log, ...access_log.2025_04_19.01
@@ -37,7 +37,7 @@ orgs:
     rules_path: ["organization-x.yaml", "organization-y.yaml"]   # isu 5a
     tz: "Etc/GMT+4"
     vhost_from: "none"
-    expected_total: 1891714
+    expected_total: 1891712
 
 # Pelabelan memakai organization-x.yaml / organization-y.yaml:
 #   filter = daftar pola (AND), case-insensitive, dicocokkan ke baris log mentah.

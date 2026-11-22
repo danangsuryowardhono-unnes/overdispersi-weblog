@@ -254,6 +254,18 @@ def dispersion(y):
     return D, p
 
 
+def pool_classes(obs, exp, minE=5):
+    """Gabungkan kelas berurutan sampai E >= minE; sisa di ujung digabung ke kelas terakhir."""
+    o2, e2, ao, ae = [], [], 0.0, 0.0
+    for o, e in zip(obs, exp):
+        ao += o; ae += e
+        if ae >= minE:
+            o2.append(ao); e2.append(ae); ao = ae = 0.0
+    if ae > 0:
+        o2[-1] += ao; e2[-1] += ae
+    return np.array(o2), np.array(e2)
+
+
 def chisq_poisson(y):
     y = np.asarray(y, int)
     lam = y.mean()
@@ -261,13 +273,8 @@ def chisq_poisson(y):
     obs = np.bincount(y, minlength=kmax + 1).astype(float)
     exp = stats.poisson.pmf(np.arange(kmax + 1), lam) * len(y)
     exp[-1] += stats.poisson.sf(kmax, lam) * len(y)
-    # gabung kelas dari kedua ekor hingga E >= 5
-    o, e = list(obs), list(exp)
-    while len(e) > 2 and e[0] < 5:
-        v, w = e.pop(0), o.pop(0); e[0] += v; o[0] += w
-    while len(e) > 2 and e[-1] < 5:
-        v, w = e.pop(), o.pop(); e[-1] += v; o[-1] += w
-    o, e = np.array(o), np.array(e)
+    # gabung kelas berurutan hingga setiap kelas gabungan E >= 5 (seluruh rentang, bukan hanya ekor)
+    o, e = pool_classes(obs, exp)
     chi = ((o - e) ** 2 / e).sum()
     df = max(len(e) - 2, 1)
     return chi, df, stats.chi2.sf(chi, df)
@@ -650,7 +657,7 @@ def main():
     if args.only_parse:
         return
 
-    T = {k: [] for k in ["t1", "t2", "t2b", "t3", "t3b", "t4", "t5"]}
+    T = {k: [] for k in ["t1", "t2", "t2b", "t3", "t3b", "t4", "t5", "t6"]}
     for org, df in data.items():
         oc = cfg["orgs"][org]
         # rentang = menit request pertama s.d. menit request terakhir (sama dengan naskah);
@@ -665,6 +672,9 @@ def main():
         row = issue1_autocorr(org, s1, cfg, args.out)
         _, meta = fit_models(s1, cfg["phase1_frac"]); row["r_NB_hour"] = meta["r"]
         T["t1"].append(row)
+        _chi, _df, _p = chisq_poisson(s1.to_numpy())
+        T["t6"].append(dict(Org=org, n_menit=len(s1), rata2=s1.mean(), D=s1.var(ddof=1) / s1.mean(),
+                            chi2=_chi, df=_df, p=_p))
 
         print("   isu 2: uji bebas jitter ...")
         r2, fits = issue2_jitter(org, benign["time"], cfg)
@@ -693,7 +703,7 @@ def main():
 
     names = {"t1": "isu1_autokorelasi", "t2": "isu2_uji_bebas_jitter", "t2b": "isu2_distribusi_alternatif",
              "t3": "isu3_periode_stabil_Y", "t3b": "isu3_per_vhost_Y", "t4": "isu4_false_alarm",
-             "t5": "isu5_sensitivitas_label"}
+             "t5": "isu5_sensitivitas_label", "t6": "tabel3_chisquare"}
     md = ["# Hasil analisis revisi\n"]
     for k, v in T.items():
         if not v:
