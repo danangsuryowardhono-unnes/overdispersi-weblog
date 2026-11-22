@@ -1,0 +1,40 @@
+source,id,label,sensitivity,filter,n_match
+organization-x.yaml,dir_scan,dir_scan,moderate,status:404 AND literal:mozilla/4.0 (compatible; msie 8.0; windows nt 5.1; trident/4.0),4
+organization-x.yaml,dir_scan,dir_scan_go,moderate,literal:go-http-client,136
+organization-x.yaml,dir_scan,dir_scan_python,moderate,status:302 AND literal:python,16
+organization-x.yaml,dir_scan,dir_scan,strict,regex:mozilla/5\.0\ \(windows\ nt\ 10\.0;\ win64;\ x64\) AND regex:post AND regex:400,24
+organization-x.yaml,dir_scan,dir_scan,strict,regex:mozilla/5\.0\ \(windows\ nt\ 10\.0;\ win64;\ x64\) AND regex:get AND regex:302,10866
+organization-x.yaml,path_traversal,path_traversal,moderate,literal:readme.txt AND literal:mozilla/5.0 (windows nt 10.0; win64; x64),7
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:post AND literal:python,4
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:head AND literal:python,4
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:post AND literal:python,4
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:md5(,47
+organization-x.yaml,rce_shell,rce_read_file,moderate,literal:etc/passwd,135
+organization-x.yaml,rce_shell,rce_sysinfo,moderate,literal:ipconfig,4
+organization-x.yaml,rce_shell,rce_java,moderate,literal:java AND literal:runtime,9
+organization-x.yaml,api_call,api_call,moderate,literal:post AND literal:mgmt/tm/util/bash,6
+organization-x.yaml,cross_site_scripting,cross_site_scripting,moderate,literal:alert AND literal:document,16
+organization-x.yaml,file_inclusion,file_inclusion,moderate,literal:=http://,4
+organization-x.yaml,file_inclusion,file_inclusion,moderate,literal:=https://,5
+organization-x.yaml,shell_execution,shell_execution,moderate,literal:cgi-bin AND literal:.sh,6
+organization-x.yaml,shell_execution,shell_execution,moderate,literal:cgi-bin AND literal:msie,2
+organization-x.yaml,remote_code,remote_code,moderate,literal:command=,22
+organization-x.yaml,remote_code,remote_code,moderate,literal:cmd=,48
+organization-x.yaml,remote_code,remote_code,moderate,literal:command=,22
+organization-x.yaml,remote_code,remote_code,moderate,literal:<?=,3
+organization-x.yaml,remote_code,remote_code,moderate,literal:base64,33
+organization-x.yaml,remote_code,remote_code,moderate,literal:<?php,3
+organization-x.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:authentication failure,0
+organization-x.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:failed password for root,0
+organization-x.yaml,bruteforce_login_web_attempt,bruteforce_login_web_attempt,moderate,literal:/login/ AND literal:post AND literal:404,22
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:select%,74
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:select+,50
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:union%,41
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:union+,16
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep%,7
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep+,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep(,89
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat%,2
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat+,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat(,32
+organization-x.yaml,unkown_sync,unkown_sync,moderate,literal:rsyncd AND literal:rsync to AND literal:unknown,0

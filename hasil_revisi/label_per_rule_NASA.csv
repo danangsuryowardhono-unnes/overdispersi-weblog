@@ -1,0 +1,70 @@
+source,id,label,sensitivity,filter,n_match
+organization-x.yaml,dir_scan,dir_scan,moderate,status:404 AND literal:mozilla/4.0 (compatible; msie 8.0; windows nt 5.1; trident/4.0),0
+organization-x.yaml,dir_scan,dir_scan_go,moderate,literal:go-http-client,0
+organization-x.yaml,dir_scan,dir_scan_python,moderate,status:302 AND literal:python,1
+organization-x.yaml,dir_scan,dir_scan,strict,regex:mozilla/5\.0\ \(windows\ nt\ 10\.0;\ win64;\ x64\) AND regex:post AND regex:400,0
+organization-x.yaml,dir_scan,dir_scan,strict,regex:mozilla/5\.0\ \(windows\ nt\ 10\.0;\ win64;\ x64\) AND regex:get AND regex:302,0
+organization-x.yaml,path_traversal,path_traversal,moderate,literal:readme.txt AND literal:mozilla/5.0 (windows nt 10.0; win64; x64),0
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:post AND literal:python,0
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:head AND literal:python,0
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:post AND literal:python,0
+organization-x.yaml,rce_shell,rce_shell,moderate,literal:md5(,0
+organization-x.yaml,rce_shell,rce_read_file,moderate,literal:etc/passwd,0
+organization-x.yaml,rce_shell,rce_sysinfo,moderate,literal:ipconfig,0
+organization-x.yaml,rce_shell,rce_java,moderate,literal:java AND literal:runtime,0
+organization-x.yaml,api_call,api_call,moderate,literal:post AND literal:mgmt/tm/util/bash,0
+organization-x.yaml,cross_site_scripting,cross_site_scripting,moderate,literal:alert AND literal:document,0
+organization-x.yaml,file_inclusion,file_inclusion,moderate,literal:=http://,0
+organization-x.yaml,file_inclusion,file_inclusion,moderate,literal:=https://,0
+organization-x.yaml,shell_execution,shell_execution,moderate,literal:cgi-bin AND literal:.sh,104
+organization-x.yaml,shell_execution,shell_execution,moderate,literal:cgi-bin AND literal:msie,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:command=,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:cmd=,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:command=,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:<?=,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:base64,0
+organization-x.yaml,remote_code,remote_code,moderate,literal:<?php,0
+organization-x.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:authentication failure,0
+organization-x.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:failed password for root,0
+organization-x.yaml,bruteforce_login_web_attempt,bruteforce_login_web_attempt,moderate,literal:/login/ AND literal:post AND literal:404,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:select%,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:select+,3
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:union%,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:union+,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep%,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep+,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:sleep(,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat%,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat+,0
+organization-x.yaml,sql_injection_attempt,sql_injection_attempt,moderate,literal:concat(,0
+organization-x.yaml,unkown_sync,unkown_sync,moderate,literal:rsyncd AND literal:rsync to AND literal:unknown,0
+organization-y.yaml,dir_scan,dir_scan,moderate,literal: python,0
+organization-y.yaml,dir_scan,dir_scan,moderate,literal:shellbot,0
+organization-y.yaml,dir_scan,dir_scan,moderate,literal:curl/8.5.0,0
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:authentication failure,0
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:failed password for,0
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:invalid user,0
+organization-y.yaml,bruteforce_login_success,bruteforce_login_success,moderate,literal:accepted password for AND literal:27.116.61.59,0
+organization-y.yaml,bruteforce_login_web,bruteforce_login_web,strict,regex:mozilla/5\.0 AND regex:/wp\-login\.php AND regex:post AND regex:200,0
+organization-y.yaml,ssh_login_success,ssh_login_success,moderate,literal:accepted publickey AND literal:27.116.61.59,0
+organization-y.yaml,password_change,password_change,moderate,literal:passwd AND literal:password changed,0
+organization-y.yaml,cyberpanel_login_attempt,cyberpanel_login_attempt,moderate,literal:verifylogin,0
+organization-y.yaml,cyberpanel_login_success,cyberpanel_login_success,moderate,literal:websitefunctions,0
+organization-y.yaml,file_inclusion,file_inclusion,moderate,literal:=http://,0
+organization-y.yaml,file_inclusion,file_inclusion,moderate,literal:=https://,0
+organization-y.yaml,add_vhost_1,add_vhost_1,moderate,literal:createvirtualhost AND literal:pragmaslot,0
+organization-y.yaml,make_directory_1,make_directory_1,moderate,literal:mkdir AND literal:pragmaslot,0
+organization-y.yaml,change_permissions_1,change_permissions_1,moderate,literal:chmod AND literal:pragmaslot,0
+organization-y.yaml,change_ownership_1,change_ownership_1,moderate,literal:chown AND literal:pragmaslot,0
+organization-y.yaml,make_files_1,make_files_1,moderate,literal:pragm1413 AND literal:index.html,0
+organization-y.yaml,delete_vhost_1,delete_vhost_1,moderate,literal:deletevirtualhostconfigurations AND literal:pragmaslot,0
+organization-y.yaml,add_vhost_2,add_vhost_2,moderate,literal:createvirtualhost AND literal:mawartoto,0
+organization-y.yaml,make_directory_2,make_directory_2,moderate,literal:mkdir AND literal:mawartoto,0
+organization-y.yaml,change_permissions_2,change_permissions_2,moderate,literal:chmod AND literal:mawartoto,0
+organization-y.yaml,change_ownership_2,change_ownership_2,moderate,literal:chown AND literal:mawartoto,0
+organization-y.yaml,make_files_2,make_files_2,moderate,literal:mawar8514 AND literal:index.html,0
+organization-y.yaml,delete_vhost_2,delete_vhost_2,moderate,literal:deletevirtualhostconfigurations AND literal:mawartoto,0
+organization-y.yaml,read_file,read_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/cat AND literal:/cyberpanel,0
+organization-y.yaml,list_file,list_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/ls AND literal:/usr/local/lsws,0
+organization-y.yaml,restart_service,restart_service,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/systemctl restart,0
+organization-y.yaml,read_file,read_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/chown AND literal:/cyberpanel,0

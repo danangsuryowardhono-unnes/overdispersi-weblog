@@ -1,0 +1,31 @@
+source,id,label,sensitivity,filter,n_match
+organization-y.yaml,dir_scan,dir_scan,moderate,literal: python,268673
+organization-y.yaml,dir_scan,dir_scan,moderate,literal:shellbot,35
+organization-y.yaml,dir_scan,dir_scan,moderate,literal:curl/8.5.0,1
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:authentication failure,0
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:failed password for,0
+organization-y.yaml,bruteforce_login_server_attempt,bruteforce_login_server_attempt,moderate,literal:invalid user,0
+organization-y.yaml,bruteforce_login_success,bruteforce_login_success,moderate,literal:accepted password for AND literal:27.116.61.59,0
+organization-y.yaml,bruteforce_login_web,bruteforce_login_web,strict,regex:mozilla/5\.0 AND regex:/wp\-login\.php AND regex:post AND regex:200,4568486
+organization-y.yaml,ssh_login_success,ssh_login_success,moderate,literal:accepted publickey AND literal:27.116.61.59,0
+organization-y.yaml,password_change,password_change,moderate,literal:passwd AND literal:password changed,0
+organization-y.yaml,cyberpanel_login_attempt,cyberpanel_login_attempt,moderate,literal:verifylogin,0
+organization-y.yaml,cyberpanel_login_success,cyberpanel_login_success,moderate,literal:websitefunctions,0
+organization-y.yaml,file_inclusion,file_inclusion,moderate,literal:=http://,678
+organization-y.yaml,file_inclusion,file_inclusion,moderate,literal:=https://,722
+organization-y.yaml,add_vhost_1,add_vhost_1,moderate,literal:createvirtualhost AND literal:pragmaslot,0
+organization-y.yaml,make_directory_1,make_directory_1,moderate,literal:mkdir AND literal:pragmaslot,0
+organization-y.yaml,change_permissions_1,change_permissions_1,moderate,literal:chmod AND literal:pragmaslot,0
+organization-y.yaml,change_ownership_1,change_ownership_1,moderate,literal:chown AND literal:pragmaslot,0
+organization-y.yaml,make_files_1,make_files_1,moderate,literal:pragm1413 AND literal:index.html,0
+organization-y.yaml,delete_vhost_1,delete_vhost_1,moderate,literal:deletevirtualhostconfigurations AND literal:pragmaslot,0
+organization-y.yaml,add_vhost_2,add_vhost_2,moderate,literal:createvirtualhost AND literal:mawartoto,0
+organization-y.yaml,make_directory_2,make_directory_2,moderate,literal:mkdir AND literal:mawartoto,0
+organization-y.yaml,change_permissions_2,change_permissions_2,moderate,literal:chmod AND literal:mawartoto,0
+organization-y.yaml,change_ownership_2,change_ownership_2,moderate,literal:chown AND literal:mawartoto,0
+organization-y.yaml,make_files_2,make_files_2,moderate,literal:mawar8514 AND literal:index.html,0
+organization-y.yaml,delete_vhost_2,delete_vhost_2,moderate,literal:deletevirtualhostconfigurations AND literal:mawartoto,0
+organization-y.yaml,read_file,read_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/cat AND literal:/cyberpanel,0
+organization-y.yaml,list_file,list_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/ls AND literal:/usr/local/lsws,0
+organization-y.yaml,restart_service,restart_service,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/systemctl restart,0
+organization-y.yaml,read_file,read_file,moderate,literal:[sudo] AND literal:/tmp/lscpd AND literal:command=/usr/bin/chown AND literal:/cyberpanel,0
