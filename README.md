@@ -26,7 +26,7 @@ Log mentah tidak disertakan di repositori ini. Unduh dari sumber aslinya:
 |---|---|
 | `revisi_overdispersi.py` | Parsing log, pelabelan dengan YAML rules, dan analisis utama: dispersi, uji chi-square (`tabel3_chisquare.csv`), model cacah, autokorelasi, uji bebas jitter, non-stasioneritas, alarm palsu, dan sensitivitas pelabelan |
 | `config_revisi.yaml` | Konfigurasi path, zona waktu, dan parameter analisis. Nilai baku `min_attack_req_per_min: 10` dipakai untuk hasil di naskah |
-| `sweep_ambang.py` | Menjalankan ulang analisis untuk `min_attack_req_per_min` = 1, 5, 20, 50 dan menggabungkan hasilnya ke `sensitivitas_ambang.csv` (Tabel B3) |
+| `sweep_ambang.py` | Menjalankan ulang analisis untuk `min_attack_req_per_min` = 1, 5, 10, 20, 50 dan menggabungkan hasilnya ke `tabel_B3_sensitivitas_ambang.csv` (Tabel B3) |
 | `kappa_label.py` | Menghitung kesepakatan dua kali pelabelan sampel audit (Cohen's kappa) |
 | `ekspor_csv_revisi.py` | Mengekspor deret per menit (`orgX.csv`, `orgY.csv`, `nasa.csv`), sampel audit label, dan Tabel A1 |
 | `analisis_tambahan_revisi.py` | IK block bootstrap, uji per jam dan per strata, NB + lag, INGARCH(1,1)-NB, diagnostik residual, rolling-origin, dan metrik monitoring |
@@ -66,7 +66,7 @@ python kappa_label.py audit_sampel_X_lama.csv audit_sampel_X_baru.csv
 python kappa_label.py audit_sampel_Y_lama.csv audit_sampel_Y_baru.csv
 ```
 
-`sweep_ambang.py` mengubah `config_revisi.yaml` sementara. Pastikan `min_attack_req_per_min` kembali ke `10` sebelum menjalankan ulang langkah 1.
+`sweep_ambang.py` tidak mengubah `config_revisi.yaml`; skrip memakai salinan `config_ambang_<k>.yaml`. Nilai baku untuk naskah tetap `min_attack_req_per_min: 10`.
 Langkah 1 menyimpan hasil parsing ke `hasil_revisi/cache_*.pkl` sehingga run berikutnya jauh lebih cepat; berkas cache tidak diunggah karena ukurannya besar.
 
 ## Pemeriksaan hasil
